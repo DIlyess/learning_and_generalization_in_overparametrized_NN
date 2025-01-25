@@ -1,0 +1,5 @@
+ipykernel==6.29.5
+torch==2.5.1
+numpy==2.2.2
+matplotlib==3.10.0
+tqdm==4.67.1
