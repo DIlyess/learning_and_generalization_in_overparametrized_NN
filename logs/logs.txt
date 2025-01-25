@@ -1,3 +1,26 @@
 2025-01-25 20:05:27,560.560 INFO main: Starting main experiment...
 2025-01-25 20:05:27,584.584 INFO main_experiment: 
 Training Two-Layer Network...
+2025-01-25 20:07:06,140.140 INFO main: Starting main experiment...
+2025-01-25 20:07:06,159.159 INFO main_experiment: 
+Training Two-Layer Network...
+2025-01-25 20:07:23,403.403 INFO main_experiment: 
+Training Three-Layer Network...
+2025-01-25 20:07:47,921.921 INFO main_experiment: 
+Training Three-Layer (Last Layer Only)...
+2025-01-25 20:08:07,090.090 INFO visualize_errors: Two-Layer NN: Test Error = 0.8791
+2025-01-25 20:08:07,090.090 INFO visualize_errors: Three-Layer NN: Test Error = 0.0478
+2025-01-25 20:08:07,090.090 INFO visualize_errors: Three-Layer (Last Layer): Test Error = 32.5001
+2025-01-25 20:08:07,090.090 INFO visualize_errors: NTK Approximation: Test Error = 0.0000
+2025-01-25 20:08:14,097.097 INFO main: Main experiment done in 67.96 seconds.
+2025-01-25 20:08:14,098.098 INFO main: Starting sample experiment...
+2025-01-25 20:08:14,098.098 INFO compare_models_with_samples: 
+Training with N = 200
+2025-01-25 20:08:27,220.220 INFO compare_models_with_samples: 
+Training with N = 500
+2025-01-25 20:08:58,345.345 INFO compare_models_with_samples: 
+Training with N = 1000
+2025-01-25 20:10:00,723.723 INFO compare_models_with_samples: 
+Training with N = 2000
+2025-01-25 20:12:04,743.743 INFO compare_models_with_samples: 
+Training with N = 5000
