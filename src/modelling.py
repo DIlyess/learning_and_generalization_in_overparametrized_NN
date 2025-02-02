@@ -7,10 +7,14 @@ from tqdm import tqdm
 
 # ------ Fonctions principales -----
 def train_network(
-    model, x_train, y_train, lr=0.01, weight_decay=1e-4, epochs=1000, batch_size=50
+    model, x_train, y_train, lr=0.01, opti = 'SGD', weight_decay=1e-4, epochs=1000, batch_size=50
 ):
     criterion = nn.MSELoss()
-    optimizer = optim.SGD(model.parameters(), lr=lr, weight_decay=weight_decay)
+    if opti=="SGD":
+        optimizer = optim.SGD(model.parameters(), lr=lr, weight_decay=weight_decay)
+    elif opti == 'Adam':
+        optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=weight_decay)
+        
     dataset = torch.utils.data.TensorDataset(x_train, y_train)
     dataloader = torch.utils.data.DataLoader(
         dataset, batch_size=batch_size, shuffle=True
@@ -70,15 +74,18 @@ class TwoLayerNN(nn.Module):
 
 
 class ThreeLayerNN(nn.Module):
-    def __init__(self, input_dim, hidden_dim1, hidden_dim2):
+    def __init__(self, input_dim, hidden_dim1, hidden_dim2, acti='ReLU'):
         super(ThreeLayerNN, self).__init__()
         self.fc1 = nn.Linear(input_dim, hidden_dim1)
         self.fc2 = nn.Linear(hidden_dim1, hidden_dim2)
         self.fc3 = nn.Linear(hidden_dim2, 1)
-        self.relu = nn.ReLU()
+        if acti == "ReLU":
+            self.acti = nn.ReLU()
+        elif acti == "sigmoid":
+            self.acti = nn.Sigmoid()
 
     def forward(self, x):
-        return self.fc3(self.relu(self.fc2(self.relu(self.fc1(x)))))
+        return self.fc3(self.acti(self.fc2(self.acti(self.fc1(x)))))
 
 
 class ThreeLayerLastOnly(nn.Module):
